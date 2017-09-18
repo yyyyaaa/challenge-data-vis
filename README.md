@@ -2,6 +2,8 @@
 
 This challenge is create a component that displays a scatter plot of data from an iris dataset.
 
+![Reference Solution](https://thumbs.gfycat.com/GrotesqueAdvancedKagu-size_restricted.gif)
+
 See the reference solution here: http://ixc-datavis.surge.sh/
 
 ### Setup & Running
