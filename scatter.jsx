@@ -71,7 +71,7 @@ module.exports = createReactClass({
   },
 
   hideStats: function() {
-    this.setState({ stats: undefined });
+    this.setState({ stats: {} });
   },
 
   render () {
@@ -85,6 +85,7 @@ module.exports = createReactClass({
     };
 
     var shouldShowStats = !isEmpty(this.state.stats);
+    var _this = this;
 
     return (
       <div className="scatter" style={scatterStyles}>
@@ -106,8 +107,8 @@ module.exports = createReactClass({
               <Dot  
                 key={index} 
                 style={dotStyles} 
-                showStats={this.showStats}
-                hideStats={this.hideStats}
+                showStats={_this.showStats}
+                hideStats={_this.hideStats}
                 data={row}
               />
             );
