@@ -29,18 +29,22 @@ var Stats = function(props) {
     position: 'absolute',
     top: 0,
     left: 0,
-    color: '#fff',
     display: props.show ? 'block' : 'none',
   };
 
+  var textStyle = {
+    color: '#fff',
+    fontSize: "12px",
+  }
+
   return (
     <div className="stats" >
-      <p>ID: {props.id}</p>
-      <p>Species: {props.species}</p>
-      <p>PetalWidth: {props.petalWidth}</p>
-      <p>PetalLength: {props.petalLength}</p>
-      <p>SepalWidth: {props.sepalWidth}</p>
-      <p>SepalLength: {props.sepalLength}</p>
+      <p style={textStyle}>ID: {props.id}</p>
+      <p style={textStyle}>Species: {props.species}</p>
+      <p style={textStyle}>PetalWidth: {props.petalWidth}</p>
+      <p style={textStyle}>PetalLength: {props.petalLength}</p>
+      <p style={textStyle}>SepalWidth: {props.sepalWidth}</p>
+      <p style={textStyle}>SepalLength: {props.sepalLength}</p>
     </div>
   );
 }
@@ -80,11 +84,14 @@ module.exports = createReactClass({
       position: 'relative',
     };
 
-    var shouldShowStats = isEmpty(this.state.stats);
+    var shouldShowStats = !isEmpty(this.state.stats);
 
     return (
       <div className="scatter" style={scatterStyles}>
-        <Stats show={shouldShowStats} {...this.state.stats} />
+        { shouldShowStats && 
+          <Stats {...this.state.stats} />
+        }
+
         { 
           this.state.data.map(function(row, index){
             var dotStyles = stylesFromType(row.species);
