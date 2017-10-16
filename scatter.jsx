@@ -2,65 +2,8 @@ var React = require('React')
 var linmap = require('linmap')
 var jsonist = require('jsonist')
 var createReactClass = require('create-react-class')
-
-var Dot = createReactClass({
-  getInitialState: function() {
-    return { isHovered: false };
-  },
-
-  handleMouseEnter: function() {
-    var statsData = this.props.data;
-    this.props.showStats(statsData);
-    this.setState({ isHovered: true });
-  },
-
-  handleMouseLeave: function() {
-    this.props.hideStats();
-    this.setState({ isHovered: false });
-  },
-
-  render() {
-    var dotStyles = this.props.style;
-    if(this.state.isHovered) {
-      dotStyles['border'] = "1px solid #fff";
-    } else {
-      dotStyles['border'] = "none";
-    }
-
-    return (
-      <div className="dot" 
-            style={dotStyles} 
-            onMouseEnter={this.handleMouseEnter}
-            onMouseLeave={this.handleMouseLeave}
-      />
-    );
-  }
-});
-
-var Stats = function(props) {
-  var statsStyles = {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    display: props.show ? 'block' : 'none',
-  };
-
-  var textStyle = {
-    color: '#fff',
-    fontSize: "12px",
-  }
-
-  return (
-    <div className="stats" >
-      <p style={textStyle}>ID: {props.id}</p>
-      <p style={textStyle}>Species: {props.species}</p>
-      <p style={textStyle}>PetalWidth: {props.petalWidth}</p>
-      <p style={textStyle}>PetalLength: {props.petalLength}</p>
-      <p style={textStyle}>SepalWidth: {props.sepalWidth}</p>
-      <p style={textStyle}>SepalLength: {props.sepalLength}</p>
-    </div>
-  );
-}
+var Dot = require('./dot')
+var Stats = require('./stats')
 
 module.exports = createReactClass({
   getInitialState: function() {
