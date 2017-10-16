@@ -2,8 +2,8 @@ var React = require('React')
 var linmap = require('linmap')
 var jsonist = require('jsonist')
 var createReactClass = require('create-react-class')
-var Dot = require('./dot')
-var Stats = require('./stats')
+var Dot = require('./dot.jsx')
+var Stats = require('./stats.jsx')
 
 module.exports = createReactClass({
   getInitialState: function() {
@@ -59,6 +59,7 @@ module.exports = createReactClass({
                                             scatterWidth );
             dotStyles['left'] = String(coords.x) + "px";
             dotStyles['bottom'] = String(coords.y) + "px";
+            row['id'] = index;
             return (
               <Dot  
                 key={index} 
