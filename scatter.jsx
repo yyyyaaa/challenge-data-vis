@@ -57,9 +57,12 @@ module.exports = createReactClass({
                                             range,
                                             scatterHeight,
                                             scatterWidth );
+
+            // Positioning based on mapped coords
             dotStyles['left'] = String(coords.x) + "px";
             dotStyles['bottom'] = String(coords.y) + "px";
             row['id'] = index;
+
             return (
               <Dot  
                 key={index} 
