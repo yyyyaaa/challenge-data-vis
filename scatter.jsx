@@ -33,11 +33,14 @@ module.exports = createReactClass({
   render () {
     var range = this.state.range
     var scatterHeight = this.props.height
-    var scatterWidth = this.props.height
+    var scatterWidth = this.props.width
     var scatterStyles = {
       width: scatterWidth,
       height: scatterHeight,
-      position: 'relative'
+      position: 'relative',
+      background: '#222',
+      border: '1px solid #000',
+      boxShadow: '0px 3px 8px rgba(0, 0, 0, 0.5)'
     }
 
     var shouldShowStats = !isEmpty(this.state.stats)
